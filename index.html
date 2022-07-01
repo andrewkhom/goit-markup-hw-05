@@ -17,7 +17,10 @@
 
   <body>
     <!-- logo + navigation -->
-   
+    <div class="backdrop is-hidden data-modal">
+      <!-- <div class="modal">
+        <button class="modal-button" data-modal-close></button> 
+      </div> -->
     <header class="header"> 
       <div class="container main-nav">
       <nav class="main-nav">
@@ -26,9 +29,9 @@
       </div>
       <div>
         <ul class="site-nav list">
-          <li class="item"><a href="./index.html" class="link link-current">Студия</a></li>
-          <li class="item"><a href="./portfolio.html" class="link">Портфолио</a></li>
-          <li class="item"><a href="" class="link">Контакты</a></li>
+          <li class="item"><a href="./index.html" class="link link-current current-index link-hover">Студия</a></li>
+          <li class="item"><a href="./portfolio.html" class="link link-hover">Портфолио</a></li>
+          <li class="item"><a href="" class="link link-hover">Контакты</a></li>
         </ul>
       </div>
       </nav>
@@ -54,10 +57,8 @@
       <!-- section 1 - major -->
       <section class="hero">
         <h1 class="hero-title">Эффективные решения для вашего бизнеса</h1>
-        <div class="backdrop is-hidden data-modal">
-          <div class="modal">
-            <button class="modal-button" data-modal-close></button> 
-          </div>
+        
+          
         <button class="hero-button" type="button" data-modal-open>Заказать услугу</button>
         
       </section>
@@ -167,7 +168,7 @@
       <section class="our-team">
       <div class="container">
         <h2 class="section-title members">Наша команда</h2>
-        <ul class="our team list container-flex">
+        <ul class="our-team list container-flex">
           <li class="our-team-item our-features-text">
             <img src="./img/img.jpeg" alt="Product_Designer" width="270" />
             <div class="our-team-text-container"><h3 class="team">Игорь Демьяненко</h3>
