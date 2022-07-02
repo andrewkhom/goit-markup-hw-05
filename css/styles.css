@@ -8,6 +8,7 @@
 --contact-info-color: #rgba(255, 255, 255, 0.6);
 --first-background-color: #E5E5E5;
 --second-background-color: rgba(245, 244, 250, 1);
+--transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 html {
@@ -119,7 +120,7 @@ text-decoration: none;
 padding: 32px 0;
 display: block;
 
-transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+transition: color var(--transition);
 
 }
 
@@ -139,11 +140,11 @@ letter-spacing: 0.02em;
 text-decoration: none;
 padding: 32px 0;
 
-transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+transition: color var(--transition);
 }
 
 .contacts use {
-    transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    transition: fill var(--transition);
 }
 
 .auth-nav .item:not(:last-child) {
@@ -335,7 +336,7 @@ margin: 0 0 10px;
     border-radius: 50%;
     background-color: rgba(255, 255, 255, 1);
 
-    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1); 
+    transition: background-color var(--transition), fill var(--transition); 
   
 }
 
@@ -381,7 +382,7 @@ margin: 0 0 10px;
     border: 1px solid #AFB1B8;
     border-radius: 4px;
 
-    transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1); 
+    transition: fill var(--transition); 
   
 }
 
@@ -459,7 +460,7 @@ address {
     width: 100%;
     height: 100%;
 
-    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1); 
+    transition: background-color var(--transition); 
   
 }
 
@@ -635,7 +636,7 @@ padding: 10px 32px;
 text-align: center;
 box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
 
-transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+transition: background-color var(--transition);
 }
 
 .hero-button:hover,
@@ -664,7 +665,7 @@ border-radius: 4px;
 min-width: 105;
 height: 38px;
 
-transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+transition: color var(--transition), background-color var(--transition);
 
 }
 
@@ -716,6 +717,7 @@ text-decoration: none;
 
 .product-thumb {
     position: relative;
+    overflow: hidden;
 }
 
 .product-thumb::before {
@@ -725,11 +727,23 @@ text-decoration: none;
     height: 100%;
     background-color: rgba(33, 150, 243, 0.9);
     position: absolute;
-    opacity: 0;
+    opacity: 1;
+
+    transform: translateY(100%);
 } 
+
+.flex-element:hover .product-thumb::before {
+    transform: translateY(0);
+    transition: transform var(--transition);
+}
+.flex-element:hover .product-discription-text{
+    transform: translateY(0);
+    transition: transform var(--transition);
+}
 
 .product-thumb:hover::before {
     opacity: 1;
+    
 }
 
 .product-thumb:hover .product-discription-text {
@@ -752,11 +766,15 @@ letter-spacing: 0.03em;
 
 color: #FFFFFF;
     
-    opacity: 0;
+    opacity: 1;
+
+    transform: translateY(100%);
 }
 
-/* backdrop */
- /* .backdrop {
+
+
+/* modal-window */
+ .backdrop {
     position: absolute;
     position: fixed;
     width: 100%;
@@ -764,25 +782,55 @@ color: #FFFFFF;
     top: 0;
     left: 0;
     background: rgba(0, 0, 0, 0.2);
-}
-.backdrop {
+
+
     opacity: 1;
-    pointer-events: none;
-}
+    visibility: visible;
+    pointer-events: initial;
+
+    transition: opacity var(--transition), visibility var(--transition);
+ }
+
+ .backdrop.is-hidden {
+     opacity: 0;
+     visibility: hidden;
+     pointer-events: none;
+ }
 
 .modal {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+position: absolute;
+top: 50%;
+left: 50%;
+transform: translate(-50%, -50%);
 
-    min-height: 581px;
-    min-width: 528px;
+min-height: 581px;
+min-width: 528px;
      
-    background-color: #fff; 
- }   */
+background: #FFFFFF;
+box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 2px 1px rgba(0, 0, 0, 0.2);
+border-radius: 4px;
 
-/* .modal-button  */
+ }   
+
+/* .modal-close-button  */
+
+.modal-close-button {
+display: flex;
+position: absolute;
+justify-content: center;
+align-items: center;
+background: #FFFFFF;
+border: 1px solid rgba(0, 0, 0, 0.1);
+width: 30px;
+height: 30px;
+border-radius: 50px;
+top: 8px;
+right: 8px;
+padding: 0;
+margin: 0;
+  
+    cursor: pointer;
+}
 
 /* image-wrapper */
 
@@ -834,7 +882,7 @@ bottom: 0;
 
 opacity: 0;
 
-transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
+transition: opacity var(--transition);
 }
  
 .link:hover::after {
