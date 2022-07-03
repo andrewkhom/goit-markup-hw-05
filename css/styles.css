@@ -715,48 +715,40 @@ text-decoration: none;
 
 /* Homework5 */
 
-.product-thumb {
+
+
+.thumb{
     position: relative;
     overflow: hidden;
 }
 
-.product-thumb::before {
-    display: inline-block;
-    content: '';
-    width: 100%;
-    height: 100%;
-    background-color: rgba(33, 150, 243, 0.9);
+
+.product-thumb {
     position: absolute;
-    opacity: 1;
-
-    transform: translateY(100%);
-} 
-
-.flex-element:hover .product-thumb::before {
-    transform: translateY(0);
-    transition: transform var(--transition);
-}
-.flex-element:hover .product-discription-text{
-    transform: translateY(0);
-    transition: transform var(--transition);
-}
-
-.product-thumb:hover::before {
-    opacity: 1;
+    top: 0;
+    left: 0;
+    width: 100%;
+   height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(33, 150, 243, 0.9);
     
+transform: translateY(100%);
+
+transition: transform var(--transition);
+
 }
 
-.product-thumb:hover .product-discription-text {
-    opacity: 1;
+.flex-element:hover .product-thumb{
+    transform: translateY(0);
 }
 
 .product-discription-text {  
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    padding: 63px 24px;
-    margin: 0;
-    font-family: 'Roboto';
+
+margin: 0;
+padding: 63px 24px;
+font-family: 'Roboto';
 font-style: normal;
 font-weight: 400;
 font-size: 18px;
@@ -765,10 +757,7 @@ line-height: 1.6;
 letter-spacing: 0.03em;
 
 color: #FFFFFF;
-    
-    opacity: 1;
-
-    transform: translateY(100%);
+   
 }
 
 
@@ -878,7 +867,7 @@ border-radius: 2px;
 margin-top: 28px;
 
 left: 0;
-bottom: 0;
+bottom: -2px;
 
 opacity: 0;
 
@@ -902,7 +891,7 @@ border-radius: 2px;
 margin-top: 28px;
 
 left: 0;
-bottom: 0;
+bottom: -2px;
 
 opacity: 1;
 
